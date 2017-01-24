@@ -1436,3 +1436,19 @@ class GPG(object):
         self._handle_io(args, file, result, passphrase, binary=True)
         logger.debug('decrypt result: %r', result.data)
         return result
+
+    def key_exists(self, key_id):
+        """
+        Given the <key_id> check local keyring if it exists.
+
+        Arguments:
+            key_id: The GPG key id to check.
+
+        Returns:
+            True If key exists.
+            False: Otherwise.
+        """
+        key = self.list_keys(keys=key_id)
+        if key:
+            return True
+        return False

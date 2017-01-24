@@ -308,6 +308,10 @@ The returned value from :meth:`list_keys` is a subclass of Python's ``list`` cla
 
 .. index:: Key; scanning
 
+You can also check if a given GPG key exists using this module, the method :meth:`key_exists` which returns `True` or `False` can help you here.
+
+   >>> gpg.key_exists('a key id') # True or False based on Keyring contents
+
 Scanning keys
 -------------
 
